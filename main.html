@@ -1,0 +1,50 @@
+<html>
+
+<body>
+    <script>
+        function readInput() {
+            const numbersStr = document.getElementById("numbers").value;
+            return numbersStr.split(',');
+        }
+
+        function writeOutput(numbersArr) {
+            const numbersStr = numbersArr.join();
+            document.getElementById("numbers").value = numbersStr;
+        }
+
+        function bubbleSort() {
+            const numbersArr = readInput();
+            for (i = 0; i < numbersArr.length; i++) {
+                for (j = 0; j < (numbersArr.length - i - 1); j++) {
+                    if (parseInt(numbersArr[j]) > parseInt(numbersArr[j+1])) {
+                        const temp = numbersArr[j];
+                        numbersArr[j] = numbersArr[j+1];
+                        numbersArr[j+1] = temp;
+                    }
+                }
+            }
+            writeOutput(numbersArr);
+        }
+
+        // function insertionSort() {
+        //     const numberArr = readInput();
+        //     alert(numberArr[0]);
+        // }
+
+        // function quickSort() {
+        //     const numberArr = readInput();
+        //     alert(numberArr[0]);
+        // }
+    </script>
+
+    <form>
+        <input type="text" id="numbers">
+        <button type="button" onclick="bubbleSort()">Bubble Sort</button>
+        <button type="button" onclick="insertionSort()">Insertion Sort</button>
+        <button type="button" onclick="quickSort()">Quick Sort</button>
+    </form>
+
+</body>
+
+</html>
+
